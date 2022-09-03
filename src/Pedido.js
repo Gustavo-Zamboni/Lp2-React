@@ -1,13 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
 
 const Pedido = (props) => {
     return (
-        <div className='card'>
-        {/**cabeçalho do cartão */}
-        <div className='card-header text-muted'>{props.data}</div>
-        {/**corpo do cartão */}
-        <div className='card-body d-flex'>
+        <div className='d-flex'>
             <div className='d-flex align-items-center'>
                 <i className={props.icone}></i>
             </div>
@@ -16,7 +10,6 @@ const Pedido = (props) => {
                 <h4 className='text-center'>{props.titulo}</h4>
                 <p className='text-center'>{props.descricao}</p>
             </div>
-        </div>
         </div>
     )
 }

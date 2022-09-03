@@ -3,8 +3,23 @@ import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import Pedido from './Pedido'
+import Cartao from './cartao'
+import Feedback from './feedback'
 
 const App = () => {
+    
+    const textoOK = "Já chegou"
+    const textoNOK = "Não chegou ainda"
+    const funcaoOK = () => alert('Agradecemos a confirmação')
+    const funcaoNOK = () => alert('Vamos verificar o ocorrido')
+    
+    const data = "20/04/2021"
+
+    const componenteFeedback= (
+        <Feedback textoOK={textoOK} textoNOK={textoNOK} 
+                funcaoOK={funcaoOK} funcaoNOK={funcaoNOK}/>
+    )
+
     return <div className='container border rounded mt-2'>
 
         {/**linha para o título */}
@@ -16,8 +31,11 @@ const App = () => {
         <div className='row'>
             {/**controle de colunas para responsividade */}
             <div className='col-sm-8 col-md-6 m-2'>
-                <Pedido data="22/04/2021" icone="fas fa-hdd fa-2x"
+                <Cartao cabecalho={data}>
+                <Pedido icone="fas fa-hdd fa-2x"
                     titulo="SSD" descricao="SSD Kingston A400 - Sata"/>
+                {componenteFeedback}
+                </Cartao>
             </div>
         </div>
 
@@ -25,8 +43,11 @@ const App = () => {
         <div className='row'>
             {/**controle de colunas para responsividade */}
             <div className='col-sm-8 col-md-6 m-2'>
-            <Pedido data="20/04/2021" icone="fas fa-book fa-2x"
-                    titulo="Livro" descricao="Concrete Mathematics - Donald Knuth"/>
+                <Cartao cabecalho={data}>
+                    <Pedido icone="fas fa-book fa-2x"
+                        titulo="Livro" descricao="Concrete Mathematics - Donald Knuth"/>
+                    {componenteFeedback}
+                </Cartao>
             </div>
         </div>
         
@@ -34,8 +55,11 @@ const App = () => {
         <div className='row'>
             {/**controle de colunas para responsividade */}
             <div className='col-sm-8 col-md-6 m-2'>
-            <Pedido data="21/01/2021" icone="fas fa-laptop fa-2x"
-                    titulo="Notebook" descricao="Notebook Dell - 8Gb - i5"/>
+                <Cartao cabecalho={data}>
+                    <Pedido icone="fas fa-laptop fa-2x"
+                        titulo="Notebook" descricao="Notebook Dell - 8Gb - i5"/>
+                    {componenteFeedback}
+                </Cartao>
             </div>
         </div>
 
